@@ -8,8 +8,8 @@ import java.sql.Date;
 
 @Entity
 public class SMMTrade {
-    @Id
-    @GeneratedValue
+    @Id()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long tradeId;
 
 //    @ManyToOne(cascade = CascadeType.ALL)
