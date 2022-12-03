@@ -1,7 +1,6 @@
 package com.game.strategy.stocks.controller;
 
 import com.game.strategy.stocks.exception.SMMTradeNotFound;
-import com.game.strategy.stocks.exception.UserNotFoundException;
 import com.game.strategy.stocks.model.SMMTrade;
 import com.game.strategy.stocks.model.User;
 import com.game.strategy.stocks.repository.SMMTradeRepository;
@@ -18,12 +17,12 @@ public class SMMTradeController {
     private SMMTradeRepository smmTradeRepository;
 
     @Autowired
-    private UserRepository smmTra;
+    private UserRepository userRepository;
 
 //    TODO : Add exception if user not present
     @PostMapping("/smm/{id}")
     SMMTrade newUser(@RequestBody SMMTrade newTrade,@PathVariable Long id) {
-        User user = smmTra.findById(id).get();
+        User user = userRepository.findById(id).get();
         newTrade.setUser(user);
         return smmTradeRepository.save(newTrade);
     }
@@ -64,8 +63,11 @@ public class SMMTradeController {
             trade.setMinRiskRewardRatio(smmTrade.getMinRiskRewardRatio());
             trade.setMaxRiskRewardRatio(smmTrade.getMaxRiskRewardRatio());
             trade.setTradeDecision(smmTrade.getTradeDecision());
-            trade.setTradeDecision(smmTrade.getTradeDecision());
+            trade.setTotalCapital(smmTrade.getTotalCapital());
             trade.setTotalInvestment(smmTrade.getTotalInvestment());
+            trade.setInvestmentPerTrade(smmTrade.getInvestmentPerTrade());
+            trade.setMaxRiskAllowed(smmTrade.getMaxRiskAllowed());
+            trade.setMaxNoOfSharesAllowed(smmTrade.getMaxNoOfSharesAllowed());
             trade.setNoOfShares(smmTrade.getNoOfShares());
             trade.setRiskInvolved(smmTrade.getRiskInvolved());
             trade.setMinProfitPotential(smmTrade.getMinProfitPotential());
