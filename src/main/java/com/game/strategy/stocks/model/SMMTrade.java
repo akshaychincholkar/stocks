@@ -28,6 +28,8 @@ public class SMMTrade {
     private String chartPattern;
     private String fibRetracement;
     private boolean divergence;
+    private String bollingerBandStatus;
+    private String adxDirectionalMovingIndex;
     private double immediateSupport;
     private double immediateResistance;
     private double majorSupport;
@@ -43,6 +45,27 @@ public class SMMTrade {
     private double maxRiskRewardRatio;
     //Buy,Strong Buy, Sell, Strong Sell
     private String tradeDecision;
+
+    public String getBollingerBandStatus() {
+        return bollingerBandStatus;
+    }
+
+    public void setBollingerBandStatus(String bollingerBandStatus) {
+        this.bollingerBandStatus = bollingerBandStatus;
+    }
+
+    public String getAdxDirectionalMovingIndex() {
+        return adxDirectionalMovingIndex;
+    }
+
+    public void setAdxDirectionalMovingIndex(String adxDirectionalMovingIndex) {
+        this.adxDirectionalMovingIndex = adxDirectionalMovingIndex;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
     //Funds related attributes
     private double totalCapital;
 
